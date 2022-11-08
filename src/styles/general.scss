@@ -13,3 +13,17 @@ html{
 img{
     max-width: 100%;
 }
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+// Layout
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
