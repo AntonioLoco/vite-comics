@@ -1,6 +1,6 @@
 <script>
 export default{
-    name: "AppFooter",
+    name: "FooterLinks",
     data(){
         return {
             navigationLinks: [
@@ -120,33 +120,6 @@ export default{
                         }
                     ]
                 },
-            ],
-            socialLinks: [
-                {
-                    name: "facebook",
-                    href: "/facebook",
-                    imgUrl: "../assets/img/footer-facebook.png",
-                },
-                {
-                    name: "twitter",
-                    href: "/twitter",
-                    imgUrl: "../assets/img/footer-twitter.png",
-                },                
-                {
-                    name: "youtube",
-                    href: "/youtube",
-                    imgUrl: "../assets/img/footer-youtube.png",
-                },                
-                {
-                    name: "pinterest",
-                    href: "/pinterest",
-                    imgUrl: "../assets/img/footer-pinterest.png",
-                },
-                {
-                    name: "periscope",
-                    href: "/periscope",
-                    imgUrl: "../assets/img/footer-periscope.png",
-                }
             ]
         }
     },
@@ -159,46 +132,26 @@ export default{
 </script>
 
 <template>
-    <footer>
-        <div class="footer-top">
-            <div class="container">
-                <div class="navigation-links">
-                    <ul v-for="category in navigationLinks">
-                        <h3>{{ category.name.toUpperCase() }}</h3>
-                        <li v-for="link in category.links"><a :href="link.href">{{ link.name }}</a></li>
-                    </ul>
-                </div>
-                <div class="logo">
-                    <img src="../assets/img/dc-logo-bg.png" alt="">
-                </div>
+    <div class="footer-links">
+        <div class="container">
+            <div class="navigation-links">
+                <ul v-for="(category,index) in navigationLinks" :key="index">
+                    <h3>{{ category.name.toUpperCase() }}</h3>
+                    <li v-for="(link, secondaryIndex) in category.links" :key="secondaryIndex"><a :href="link.href">{{ link.name }}</a></li>
+                </ul>
+            </div>
+            <div class="logo">
+                <img src="../assets/img/dc-logo-bg.png" alt="">
             </div>
         </div>
-    
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="button">
-                    <button>SIGN-UP NOW!</button>
-                </div>
-                <div class="social-links">
-                    <h3>FOLLOW US</h3>
-                    <ul>
-                        <li v-for="social in socialLinks">
-                            <a :href="social.href">
-                                <img :src="getImagePath(social.imgUrl)" :alt="social.name">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
+    </div>
 </template>
 
 <style lang="scss" scoped>
 @use "../styles/partials/variables" as *;
 @use "../styles/partials/mixins" as *;
 
-.footer-top{
+.footer-links{
     background-image: url("../assets/img/footer-bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -215,7 +168,7 @@ export default{
             padding: 2em 0;    
 
             ul{
-                // width: calc(100% / 4 - 1em);
+                width: calc(100% / 4 - 1em);
                 margin: 0 1em;
 
                 h3{
@@ -247,40 +200,4 @@ export default{
     }
 
 }
-
-.footer-bottom{
-    background-color: $third-color;
-    .container{
-        @include flex-center("vertical");
-        justify-content: space-between;
-        padding: 2em 0;
-
-        .button{
-            button{
-                padding: 1em;
-                color: #fff;
-                border: 3px solid $primary-color;
-                background-color: $third-color;
-            }
-        }
-
-        .social-links{
-            @include flex-center("vertical");
-
-            h3{
-                color: $primary-color;
-            }
-
-            ul{
-                @include flex-center("vertical");
-                margin: 0 1em;
-
-                li{
-                    margin: 0 .5em;
-                }
-            }
-        }
-    }
-}
-
 </style>

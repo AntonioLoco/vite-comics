@@ -1,21 +1,33 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
 import ProductList from './components/ProductList.vue';
-import AppFooter from './components/AppFooter.vue';
+import AppIcons from './components/AppIcons.vue';
+import FooterLinks from './components/FooterLinks.vue';
+import FooterSocial from './components/FooterSocial.vue';
 
 export default{
   components: {
     AppHeader,
     ProductList,
-    AppFooter
+    AppIcons,
+    FooterLinks,
+    FooterSocial
   }
 }
 </script>
 
 <template>
   <AppHeader />
-  <ProductList />
-  <AppFooter />
+  
+  <main>
+    <ProductList />
+    <AppIcons />
+  </main>
+  
+  <footer>
+    <FooterLinks />
+    <FooterSocial />
+  </footer>
 </template>
 
 <style lang="scss">
