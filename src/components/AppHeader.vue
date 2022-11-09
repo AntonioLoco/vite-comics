@@ -70,8 +70,8 @@ export default{
             </div>
             <nav class="navigation">
                 <ul>
-                    <li v-for="link in navigations" :class="{'active' : link.active}">
-                        <a :href="link.href">{{ link.name.toUpperCase() }}</a>
+                    <li v-for="(link,index) in navigations" :key="index">
+                        <a :href="link.href" :class="{'active' : link.active}">{{ link.name.toUpperCase() }}</a>
                     </li>
                 </ul>
             </nav>
@@ -107,16 +107,33 @@ header {
                 height: 100%;
                 @include flex-center("vertical");
                 margin: 0 .5em;
-                border-bottom: 5px solid #fff;
+
 
                 a{
-                    color: #000;
+                    display: flex;
+                    height: 100%;
+                    align-items: center;
+                    color: inherit;
                     font-weight: bold;
                     font-size: .8rem;
-                }
+                    position: relative;
 
-                &.active{
-                    border-bottom: 5px solid $primary-color;
+                    &:after{
+                        content: '';
+                        display: block;
+                        width: 100%;
+                        height: 0px;
+                        background-color: $primary-color;
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        transition: height .3s ease;
+                    }
+
+                    &:hover::after,
+                    &.active:after{
+                        height: 5px;
+                    }
                 }
             }
         }
