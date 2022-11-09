@@ -1,5 +1,6 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
+import AppJumbotron from './components/AppJumbotron.vue';
 import ProductList from './components/ProductList.vue';
 import AppIcons from './components/AppIcons.vue';
 import FooterLinks from './components/FooterLinks.vue';
@@ -8,6 +9,7 @@ import FooterSocial from './components/FooterSocial.vue';
 export default{
   components: {
     AppHeader,
+    AppJumbotron,
     ProductList,
     AppIcons,
     FooterLinks,
@@ -20,6 +22,7 @@ export default{
   <AppHeader />
   
   <main>
+    <AppJumbotron />
     <ProductList />
     <AppIcons />
   </main>
