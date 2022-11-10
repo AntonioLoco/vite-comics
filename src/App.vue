@@ -14,6 +14,11 @@ export default{
     AppIcons,
     FooterLinks,
     FooterSocial
+  },
+  methods: {
+    getImagePath(imgPath){
+      return new URL(imgPath, import.meta.url).href;
+    }
   }
 }
 </script>
@@ -22,7 +27,7 @@ export default{
   <AppHeader />
   
   <main>
-    <AppJumbotron />
+    <AppJumbotron :imgUrl="getImagePath('./assets/img/jumbotron.jpg')" :nameSection="'current series'" />
     <ProductList />
     <AppIcons />
   </main>

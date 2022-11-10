@@ -1,15 +1,19 @@
 <script>
 export default{
-    name: "AppJumbotron", 
+    name: "AppJumbotron",
+    props: {
+        imgUrl: String,
+        nameSection: String
+    }
 }
 </script>
 
 <template>
     <div class="jumbotron">
-        <img src="../assets/img/jumbotron.jpg" alt="jumbo photo">
+        <img :src="imgUrl" alt="jumbo photo">
         <div class="container">
             <div class="name-plate">
-                <h4> CURRENT SERIES</h4>
+                <h4>{{nameSection.toUpperCase()}}</h4>
             </div>
         </div>
     </div>
